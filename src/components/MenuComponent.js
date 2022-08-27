@@ -16,7 +16,13 @@ class Menu extends Component {
       }
 
       renderDish(dish){
-            return(<Dishdetail dishCurrent = {dish}/>);
+            if(dish !== null){
+                  return(<Dishdetail dishCurrent = {dish}/>);
+            } else{
+                  return(
+                        <div></div>
+                  );
+            }
       }
 
       render(){

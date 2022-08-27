@@ -4,53 +4,39 @@ import Card from "react-bootstrap/Card";
 class Dishdetail extends Component {
 
       renderComments(array){
-            console.log(typeof array);
-            if(array!=null){
-                  const comments = array.map((com)=>{
+
+                  const comments = array.map((element)=>{
                         return(
                               <ul className="list-unstyled">
-                                    <li>{com.comment}</li>
-                                    <li>--{com.author},{com.date}</li>
+                                    <li>{element.comment}</li>
+                                    <li>--{element.author}, {new Date(element.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</li>
                               </ul>
                         );
-                  })
+                  });
                   return(
                   <div className="col-12 col-md-5 m-1">
                         <h4 className="">Comments</h4>
                         {comments}
                   </div>
             );
-            } else{
-                  return(
-                        <div></div>
-                  );
-            }
       }
 
       renderDish(dish){
+            return(
+                  <div  key={dish.id} className="col-12 col-md-5 m-1">
+                        <Card>
+                              <Card.Img width="100%" src={dish.image} alt={dish.name}/>
+                              <Card.Body>
+                              <Card.Title>{dish.name}</Card.Title>
+                                    <Card.Text>{dish.description}</Card.Text>
+                              </Card.Body>
+                        </Card>
+                  </div>
 
-            if(dish!=null){
-                  return(
-                        <div  key={dish.id} className="col-12 col-md-5 m-1">
-                              <Card>
-                                    <Card.Img width="100%" src={dish.image} alt={dish.name}/>
-                                    <Card.Body>
-                                    <Card.Title>{dish.name}</Card.Title>
-                                          <Card.Text>{dish.description}</Card.Text>
-                                    </Card.Body>
-                              </Card>
-                        </div>
-      
-                  );
-            } else{
-                  return(
-                        <div></div>
-                  );
-            }
+            );
       }
 
       render(){
-            
             return (
                   <div className="row">
                         {this.renderDish(this.props.dishCurrent)}
