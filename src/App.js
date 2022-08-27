@@ -1,5 +1,5 @@
 import {Navbar, NavbarBrand} from 'react-bootstrap'
-import Menu from './components/MenuComponents';
+import Menu from "./components/MenuComponent";
 import './App.css';
 import {DISHES} from './shared/dishes';
 import { Component } from 'react';
@@ -16,7 +16,8 @@ class App extends Component {
   render(){
     return (
       <div>
-        <Navbar bg='warning'>
+        HOla mundo
+        <Navbar bg='primary'>
           <div className='container'>
             <NavbarBrand href="/" className= "text-white">Ristorante Con Fusion</NavbarBrand>
           </div>
